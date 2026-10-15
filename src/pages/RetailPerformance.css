@@ -1,0 +1,644 @@
+.retail-performance-page {
+  background: #071724;
+}
+
+
+.retail-performance-content {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 36px 34px 60px;
+}
+
+
+.retail-performance-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+
+.retail-performance-header > div:first-child > span {
+  color: #57cad3;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+
+.retail-performance-header h1 {
+  margin: 6px 0;
+  color: #edf5f9;
+  font-size: 36px;
+  line-height: 1.08;
+}
+
+
+.retail-performance-header p {
+  max-width: 790px;
+  margin: 0;
+  color: #84a0b1;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+.retail-performance-controls {
+  display: flex;
+  gap: 8px;
+}
+
+
+.retail-performance-controls select,
+.retail-performance-controls button {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #285269;
+  border-radius: 8px;
+  outline: none;
+  color: #c6dae4;
+  background: #0a2030;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+.retail-performance-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+
+
+.retail-performance-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+  margin-bottom: 14px;
+}
+
+
+.retail-performance-kpis article {
+  min-height: 120px;
+  padding: 17px;
+  border: 1px solid #1c3d51;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      #102639,
+      #091e2e
+    );
+}
+
+
+.retail-performance-kpis span,
+.retail-performance-kpis small {
+  display: block;
+  color: #7896a8;
+  font-size: 9px;
+}
+
+
+.retail-performance-kpis strong {
+  display: block;
+  margin: 10px 0 5px;
+  color: #edf5f8;
+  font-size: 27px;
+}
+
+
+.retail-performance-kpis strong.positive {
+  color: #5dd4b1;
+}
+
+
+.retail-performance-kpis strong.negative {
+  color: #ed7f8a;
+}
+
+
+.retail-performance-chart-panel,
+.retail-performance-comparison,
+.retail-relative-performance,
+.retail-performance-holdings {
+  padding: 20px;
+  border: 1px solid #1b3d52;
+  border-radius: 13px;
+  background:
+    linear-gradient(
+      145deg,
+      #0f2538,
+      #091d2d
+    );
+}
+
+
+.retail-performance-chart-panel {
+  margin-bottom: 14px;
+}
+
+
+.retail-performance-chart-panel > header,
+.retail-performance-comparison > header,
+.retail-relative-performance > header,
+.retail-performance-holdings > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 15px;
+}
+
+
+.retail-performance-chart-panel header > div,
+.retail-performance-comparison header,
+.retail-relative-performance header,
+.retail-performance-holdings header > div {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+
+.retail-performance-chart-panel svg:not(.retail-performance-chart),
+.retail-performance-comparison header svg,
+.retail-relative-performance header svg,
+.retail-performance-holdings header svg {
+  flex-shrink: 0;
+  color: #59cfbd;
+}
+
+
+.retail-performance-chart-panel h2,
+.retail-performance-comparison h2,
+.retail-relative-performance h2,
+.retail-performance-holdings h2 {
+  margin: 0 0 4px;
+  color: #e9f2f6;
+  font-size: 16px;
+}
+
+
+.retail-performance-chart-panel header p,
+.retail-performance-comparison header p,
+.retail-relative-performance header p,
+.retail-performance-holdings header p {
+  margin: 0;
+  color: #7896a7;
+  font-size: 9px;
+}
+
+
+.retail-performance-chart-panel > header > span {
+  color: #59bcd0;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+
+.retail-performance-chart-wrap {
+  width: 100%;
+}
+
+
+.retail-performance-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 330px;
+}
+
+
+.retail-performance-gridline {
+  stroke: rgba(111, 153, 176, .15);
+  stroke-width: 1;
+}
+
+
+.retail-performance-axis-text {
+  fill: #68889a;
+  font-size: 10px;
+}
+
+
+.retail-performance-line {
+  fill: none;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+
+.retail-performance-line.portfolio {
+  stroke: #5ad3ba;
+}
+
+
+.retail-performance-line.benchmark {
+  stroke: #5b92d1;
+  stroke-width: 2;
+}
+
+
+.retail-performance-legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  color: #829cab;
+  font-size: 9px;
+}
+
+
+.retail-performance-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.retail-performance-legend i {
+  width: 18px;
+  height: 3px;
+  border-radius: 3px;
+}
+
+
+.retail-performance-legend i.portfolio {
+  background: #5ad3ba;
+}
+
+
+.retail-performance-legend i.benchmark {
+  background: #5b92d1;
+}
+
+
+.retail-performance-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(320px, .85fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+
+.retail-performance-comparison-table > div {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #17364a;
+}
+
+
+.retail-performance-comparison-table .heading {
+  border-top: none;
+  color: #728fa0;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+
+.retail-performance-comparison-table > div > span {
+  color: #829eac;
+  font-size: 9px;
+}
+
+
+.retail-performance-comparison-table > div > strong {
+  color: #dbe7ed;
+  font-size: 10px;
+  text-align: right;
+}
+
+
+.retail-performance-comparison-table > div > strong.negative {
+  color: #e7818b;
+}
+
+
+.retail-relative-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+
+
+.retail-relative-metrics > div {
+  padding: 12px;
+  border: 1px solid #1e4257;
+  border-radius: 9px;
+  background: #091d2c;
+}
+
+
+.retail-relative-metrics span {
+  display: block;
+  color: #7694a5;
+  font-size: 8px;
+}
+
+
+.retail-relative-metrics strong {
+  display: block;
+  margin-top: 6px;
+  color: #dce8ed;
+  font-size: 17px;
+}
+
+
+.retail-performance-interpretation {
+  display: flex;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 11px;
+  border: 1px solid #20505b;
+  border-radius: 8px;
+  background: rgba(50, 151, 149, .06);
+}
+
+
+.retail-performance-interpretation svg {
+  flex-shrink: 0;
+  color: #59cfba;
+}
+
+
+.retail-performance-interpretation p {
+  margin: 0;
+  color: #7896a6;
+  font-size: 8px !important;
+  line-height: 1.55;
+}
+
+
+.retail-performance-holdings {
+  margin-bottom: 14px;
+}
+
+
+.retail-performance-holding-list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.retail-performance-holding-list > div {
+  display: grid;
+  grid-template-columns:
+    100px
+    140px
+    1fr
+    1fr;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid #17364a;
+  color: #829dab;
+  font-size: 9px;
+}
+
+
+.retail-performance-holding-list strong {
+  color: #e0eaef;
+}
+
+
+.retail-performance-methodology {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 13px 15px;
+  border: 1px solid #1f4959;
+  border-radius: 10px;
+  background: rgba(45, 135, 149, .06);
+}
+
+
+.retail-performance-methodology svg {
+  flex-shrink: 0;
+  color: #56cfbc;
+}
+
+
+.retail-performance-methodology strong {
+  color: #c9dcdf;
+  font-size: 9px;
+}
+
+
+.retail-performance-methodology p {
+  max-width: 980px;
+  margin: 4px 0 0;
+  color: #7594a4;
+  font-size: 8px !important;
+  line-height: 1.5;
+}
+
+
+.retail-performance-methodology > span {
+  margin-left: auto;
+  color: #648393;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+
+.retail-performance-loading,
+.retail-performance-empty {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 34px;
+  border: 1px solid #21455a;
+  border-radius: 14px;
+  background: #0c2132;
+  text-align: center;
+}
+
+
+.retail-performance-loading svg,
+.retail-performance-empty svg {
+  color: #59cbbb;
+}
+
+
+.retail-performance-loading strong {
+  display: block;
+  margin: 11px 0 5px;
+  color: #dfeaf0;
+}
+
+
+.retail-performance-loading span,
+.retail-performance-empty p {
+  color: #7d9aaa;
+  font-size: 10px;
+}
+
+
+.retail-performance-empty h1 {
+  color: #edf5f8;
+}
+
+
+.retail-performance-empty a {
+  display: inline-block;
+  margin-top: 13px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  color: #06212a;
+  background: #58cdbd;
+  font-size: 10px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+
+.retail-performance-error {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(213, 82, 97, .28);
+  border-radius: 8px;
+  color: #e98590;
+  background: rgba(177, 57, 72, .08);
+  font-size: 9px;
+}
+
+
+@media (max-width: 1100px) {
+
+  .retail-performance-kpis {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .retail-performance-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .retail-performance-content {
+    padding: 24px 18px 50px;
+  }
+
+
+  .retail-performance-header {
+    flex-direction: column;
+  }
+
+
+  .retail-performance-controls {
+    flex-wrap: wrap;
+  }
+
+
+  .retail-performance-kpis {
+    grid-template-columns: 1fr;
+  }
+
+
+  .retail-performance-holding-list > div {
+    grid-template-columns:
+      75px
+      100px
+      1fr;
+  }
+
+
+  .retail-performance-holding-list > div span:last-child {
+    grid-column:
+      2 / 4;
+  }
+
+}
+
+
+
+/* ========================================
+   PERFORMANCE DATA COVERAGE
+======================================== */
+
+.retail-performance-coverage-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  margin-top: 14px;
+  padding: 12px 14px;
+
+  max-width: 900px;
+
+  border:
+    1px solid
+    rgba(245, 158, 11, 0.28);
+
+  border-radius: 12px;
+
+  background:
+    rgba(245, 158, 11, 0.07);
+
+  color:
+    #d8e3ec;
+}
+
+
+.retail-performance-coverage-warning > svg {
+  flex: 0 0 auto;
+
+  margin-top: 2px;
+
+  color:
+    #f0b84b;
+}
+
+
+.retail-performance-coverage-warning div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+
+.retail-performance-coverage-warning strong {
+  color:
+    #f2c46d;
+
+  font-size:
+    0.82rem;
+
+  font-weight:
+    700;
+}
+
+
+.retail-performance-coverage-warning span {
+  color:
+    #93aabd;
+
+  font-size:
+    0.77rem;
+
+  line-height:
+    1.55;
+}
+
+
+.retail-performance-coverage-warning b {
+  color:
+    #cbd8e3;
+
+  font-weight:
+    650;
+}

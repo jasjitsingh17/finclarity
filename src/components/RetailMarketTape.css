@@ -1,0 +1,224 @@
+.retail-market-tape {
+  position: relative;
+  z-index: 4;
+  min-height: 44px;
+  display: grid;
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+  border-top: 1px solid #163348;
+  border-bottom: 1px solid #163348;
+  background:
+    linear-gradient(
+      90deg,
+      #081a29,
+      #0b2132,
+      #081a29
+    );
+}
+
+
+.retail-market-tape-label {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 15px 0 18px;
+  color: #73a7c3;
+  background: #081a29;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  white-space: nowrap;
+}
+
+
+.retail-market-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #59d7bd;
+  box-shadow:
+    0 0 9px
+    rgba(89, 215, 189, .65);
+}
+
+
+.retail-market-tape-window {
+  min-width: 0;
+  overflow: hidden;
+}
+
+
+.retail-market-tape-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+
+  animation:
+    retail-market-scroll
+    38s linear
+    infinite;
+
+  animation-play-state: running;
+
+  will-change: transform;
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  -webkit-transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  backface-visibility:
+    hidden;
+
+  -webkit-backface-visibility:
+    hidden;
+
+  transform-style:
+    preserve-3d;
+}
+
+
+.retail-market-tape:hover
+.retail-market-tape-track {
+  animation-play-state: paused;
+}
+
+
+.retail-market-quote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 15px;
+  color: #8aa6b7;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+
+.retail-market-flag {
+  font-size: 14px;
+}
+
+
+.retail-market-quote strong {
+  color: #dcebf3;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+.retail-market-price {
+  color: #a7bdca;
+  font-weight: 700;
+}
+
+
+.retail-market-change {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+.retail-market-change.positive {
+  color: #58d5ad;
+}
+
+
+.retail-market-change.negative {
+  color: #ec7e88;
+}
+
+
+.retail-market-divider {
+  color: #315066;
+}
+
+
+.retail-market-delay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  color: #5e8095;
+  background: #081a29;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  white-space: nowrap;
+}
+
+
+.retail-market-tape.unavailable {
+  grid-template-columns:
+    auto 1fr;
+  padding-right: 18px;
+  color: #7897aa;
+  font-size: 11px;
+}
+
+
+@keyframes retail-market-scroll {
+
+  from {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+
+    -webkit-transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  to {
+    transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
+
+    -webkit-transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
+  }
+}
+
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .retail-market-tape-track {
+    animation: none;
+  }
+
+}

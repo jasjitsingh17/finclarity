@@ -1,0 +1,242 @@
+/* =========================================================
+   FINCLARITY — INSTITUTIONAL CONSISTENCY PASS
+   Aligns Overview + Portfolio + shared research pages.
+   ========================================================= */
+
+/* ----- Shared readable type scale ----- */
+
+:root {
+  --fc-inst-page-title: 40px;
+  --fc-inst-section-title: 18px;
+  --fc-inst-card-title: 14px;
+  --fc-inst-body: 13px;
+  --fc-inst-small: 11px;
+  --fc-inst-label: 10px;
+  --fc-inst-button: 12px;
+}
+
+
+/* ----- Dashboard portfolio launcher ----- */
+
+.fc-institutional-launcher-scale {
+  font-size: var(--fc-inst-body);
+}
+
+.fc-institutional-launcher-scale h1,
+.fc-institutional-launcher-scale h2 {
+  font-size: var(--fc-inst-section-title) !important;
+  line-height: 1.25 !important;
+}
+
+.fc-institutional-launcher-scale h3,
+.fc-institutional-launcher-scale strong {
+  font-size: var(--fc-inst-card-title) !important;
+  line-height: 1.35 !important;
+}
+
+.fc-institutional-launcher-scale p {
+  font-size: var(--fc-inst-small) !important;
+  line-height: 1.55 !important;
+}
+
+.fc-institutional-launcher-scale small,
+.fc-institutional-launcher-scale label,
+.fc-institutional-launcher-scale [class*="label"],
+.fc-institutional-launcher-scale [class*="eyebrow"] {
+  font-size: var(--fc-inst-label) !important;
+  line-height: 1.4 !important;
+}
+
+.fc-institutional-launcher-scale button,
+.fc-institutional-launcher-scale a {
+  font-size: var(--fc-inst-button) !important;
+}
+
+
+/* ----- Overview main content ----- */
+
+.quant-heading h1 {
+  font-size: var(--fc-inst-page-title) !important;
+  line-height: 1.08 !important;
+}
+
+.quant-heading p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.quant-content h2,
+.quant-content h3 {
+  font-size: var(--fc-inst-section-title) !important;
+}
+
+.quant-content p,
+.quant-content span,
+.quant-content small {
+  line-height: 1.5;
+}
+
+
+/* ----- Institutional Portfolio ----- */
+
+.institutional-portfolio-main h1 {
+  font-size: var(--fc-inst-page-title) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em;
+}
+
+.institutional-portfolio-main header p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.institutional-portfolio-main h2,
+.institutional-portfolio-main h3 {
+  font-size: var(--fc-inst-section-title) !important;
+  line-height: 1.3 !important;
+}
+
+.institutional-portfolio-main p {
+  font-size: var(--fc-inst-body) !important;
+  line-height: 1.55 !important;
+}
+
+.institutional-portfolio-main label,
+.institutional-portfolio-main th,
+.institutional-portfolio-main [class*="label"],
+.institutional-portfolio-main [class*="eyebrow"] {
+  font-size: var(--fc-inst-label) !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.08em;
+}
+
+.institutional-portfolio-main input,
+.institutional-portfolio-main select,
+.institutional-portfolio-main textarea {
+  font-size: var(--fc-inst-body) !important;
+  line-height: 1.35 !important;
+}
+
+.institutional-portfolio-main button,
+.institutional-portfolio-main a {
+  font-size: var(--fc-inst-button) !important;
+}
+
+.institutional-portfolio-main td {
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+
+/* ----- Shared institutional sidebar parity ----- */
+
+.quant-sidebar nav a,
+.institutional-sidebar nav a {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+}
+
+.quant-sidebar [class*="section"],
+.institutional-sidebar [class*="section"] {
+  font-size: 10px;
+}
+
+.quant-sidebar small,
+.institutional-sidebar small {
+  font-size: 9px !important;
+  line-height: 1.45 !important;
+}
+
+
+/* ----- Topbar readability ----- */
+
+.quant-search,
+.quant-search span,
+.quant-search input {
+  font-size: 12px !important;
+}
+
+.quant-environment {
+  font-size: 9px !important;
+}
+
+.quant-profile,
+.fc-profile-button {
+  font-size: 11px !important;
+}
+
+
+/* ----- Shared research pages ----- */
+
+.risk-header h1,
+.frontier-header h1,
+.factor-header h1,
+.backtest-header h1,
+.black-litterman-header h1,
+.settings-header h1 {
+  font-size: var(--fc-inst-page-title) !important;
+  line-height: 1.08 !important;
+}
+
+.risk-header p,
+.frontier-header p,
+.factor-header p,
+.backtest-header p,
+.black-litterman-header p,
+.settings-header p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.risk-main h2,
+.risk-main h3,
+.frontier-main h2,
+.frontier-main h3,
+.factor-main h2,
+.factor-main h3,
+.backtest-main h2,
+.backtest-main h3,
+.black-litterman-main h2,
+.black-litterman-main h3,
+.settings-main h2,
+.settings-main h3 {
+  font-size: var(--fc-inst-section-title) !important;
+}
+
+.risk-main p,
+.frontier-main p,
+.factor-main p,
+.backtest-main p,
+.black-litterman-main p,
+.settings-main p {
+  font-size: var(--fc-inst-body);
+  line-height: 1.55;
+}
+
+
+/* ----- Large desktop balance ----- */
+
+@media (min-width: 1500px) {
+  :root {
+    --fc-inst-page-title: 42px;
+    --fc-inst-section-title: 19px;
+    --fc-inst-card-title: 15px;
+    --fc-inst-body: 14px;
+    --fc-inst-small: 12px;
+    --fc-inst-button: 13px;
+  }
+}
+
+
+/* ----- Mobile / tablet ----- */
+
+@media (max-width: 900px) {
+  :root {
+    --fc-inst-page-title: 33px;
+    --fc-inst-section-title: 17px;
+    --fc-inst-card-title: 14px;
+    --fc-inst-body: 12px;
+    --fc-inst-small: 11px;
+    --fc-inst-button: 12px;
+  }
+}

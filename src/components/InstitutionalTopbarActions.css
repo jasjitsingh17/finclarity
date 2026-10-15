@@ -1,0 +1,297 @@
+.fc-institutional-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fc-topbar-control {
+  position: relative;
+}
+
+.fc-topbar-clickable,
+.fc-profile-button {
+  cursor: pointer;
+}
+
+.fc-profile-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 0;
+  font: inherit;
+}
+
+.fc-topbar-popover {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 330px;
+  padding: 16px;
+  border: 1px solid rgba(91, 151, 181, 0.18);
+  border-radius: 12px;
+  background: #081c2b;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.fc-topbar-popover::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(91, 151, 181, 0.18);
+  border-left: 1px solid rgba(91, 151, 181, 0.18);
+  background: #081c2b;
+  transform: rotate(45deg);
+}
+
+.fc-topbar-popover-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(91, 151, 181, 0.10);
+}
+
+.fc-topbar-popover-heading > div:first-child {
+  min-width: 0;
+}
+
+.fc-topbar-popover-heading span {
+  display: block;
+  margin-bottom: 5px;
+  color: #5fcdb8;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.fc-topbar-popover-heading strong {
+  display: block;
+  overflow: hidden;
+  color: #d8e6ec;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.fc-topbar-status {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 5px;
+  color: #6fcdbb;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.fc-topbar-note {
+  display: flex;
+  gap: 9px;
+  margin: 13px 0;
+  padding: 10px;
+  border: 1px solid rgba(92, 154, 183, 0.10);
+  border-radius: 8px;
+  background: rgba(13, 42, 60, 0.55);
+  color: #7696a7;
+}
+
+.fc-topbar-note svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #5fcdb8;
+}
+
+.fc-topbar-note p {
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.fc-topbar-pref-list {
+  display: grid;
+  gap: 2px;
+}
+
+.fc-topbar-pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(91, 151, 181, 0.08);
+  cursor: pointer;
+}
+
+.fc-topbar-pref-row > div {
+  min-width: 0;
+}
+
+.fc-topbar-pref-row strong {
+  display: block;
+  color: #c9d9e0;
+  font-size: 9px;
+}
+
+.fc-topbar-pref-row span {
+  display: block;
+  margin-top: 4px;
+  color: #668496;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.fc-topbar-pref-row input {
+  width: 15px;
+  height: 15px;
+  accent-color: #5fcdb8;
+}
+
+.fc-topbar-panel-link,
+.fc-profile-links a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8fb1bf;
+  font-size: 9px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.fc-topbar-panel-link {
+  margin-top: 13px;
+}
+
+.fc-topbar-panel-link:hover,
+.fc-profile-links a:hover {
+  color: #62d0ba;
+}
+
+.fc-profile-popover {
+  width: 300px;
+}
+
+.fc-profile-initials-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(95, 205, 184, 0.23);
+  border-radius: 50%;
+  background: #123d54;
+  color: #ccece6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.fc-profile-field {
+  margin-top: 14px;
+}
+
+.fc-profile-field label {
+  display: block;
+  margin-bottom: 6px;
+  color: #7897a7;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.fc-profile-field input {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid rgba(91, 151, 181, 0.16);
+  border-radius: 8px;
+  outline: none;
+  background: #071724;
+  color: #dce8ed;
+  font: inherit;
+  font-size: 10px;
+}
+
+.fc-profile-field input:focus {
+  border-color: rgba(95, 205, 184, 0.45);
+}
+
+.fc-profile-save {
+  width: 100%;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 10px;
+  border: 1px solid rgba(95, 205, 184, 0.24);
+  border-radius: 8px;
+  background: rgba(95, 205, 184, 0.10);
+  color: #8fe0cf;
+  cursor: pointer;
+  font: inherit;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.fc-profile-save:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.fc-profile-links {
+  display: grid;
+  gap: 11px;
+  margin-top: 14px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(91, 151, 181, 0.10);
+  border-bottom: 1px solid rgba(91, 151, 181, 0.10);
+}
+
+.fc-profile-reset {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #718e9d;
+  cursor: pointer;
+  font: inherit;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.fc-profile-reset:hover {
+  color: #d7a3a8;
+}
+
+.fc-profile-disclosure {
+  margin: 12px 0 0;
+  color: #526f80;
+  font-size: 7px;
+  line-height: 1.55;
+}
+
+@media (max-width: 760px) {
+  .fc-topbar-popover {
+    position: fixed;
+    top: 76px;
+    right: 14px;
+    left: 14px;
+    width: auto;
+  }
+
+  .fc-topbar-popover::before {
+    display: none;
+  }
+}

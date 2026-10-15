@@ -1,0 +1,207 @@
+/* =========================================================
+   FINCLARITY — INSTITUTIONAL EXACT PARITY
+   Explicit shared scale for Overview + Portfolio.
+   Loaded last so it overrides legacy page-specific font sizes.
+   ========================================================= */
+
+.fc-institutional-page {
+  --fc-inst-title: 40px;
+  --fc-inst-subtitle: 14px;
+  --fc-inst-section: 18px;
+  --fc-inst-card: 15px;
+  --fc-inst-body: 13px;
+  --fc-inst-small: 11px;
+  --fc-inst-label: 10px;
+  --fc-inst-button: 13px;
+  --fc-inst-input: 13px;
+  --fc-inst-table: 12px;
+
+  font-size: var(--fc-inst-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Main page titles */
+.fc-institutional-page h1 {
+  font-size: var(--fc-inst-title) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Main introductory copy */
+.fc-institutional-page h1 + p,
+.fc-institutional-page header p,
+.fc-institutional-page .quant-heading p {
+  font-size: var(--fc-inst-subtitle) !important;
+  line-height: 1.58 !important;
+}
+
+/* Eyebrows */
+.fc-institutional-page [class*="eyebrow"],
+.fc-institutional-page [class*="kicker"] {
+  font-size: var(--fc-inst-label) !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* Section headings */
+.fc-institutional-page h2 {
+  font-size: var(--fc-inst-section) !important;
+  line-height: 1.28 !important;
+}
+
+/* Card headings */
+.fc-institutional-page h3 {
+  font-size: var(--fc-inst-card) !important;
+  line-height: 1.32 !important;
+}
+
+/* General body copy */
+.fc-institutional-page p {
+  font-size: var(--fc-inst-body) !important;
+  line-height: 1.55 !important;
+}
+
+/* Labels / helper text */
+.fc-institutional-page label,
+.fc-institutional-page th,
+.fc-institutional-page small,
+.fc-institutional-page [class*="meta"],
+.fc-institutional-page [class*="label"] {
+  font-size: var(--fc-inst-small) !important;
+  line-height: 1.45 !important;
+}
+
+/* Forms */
+.fc-institutional-page input,
+.fc-institutional-page select,
+.fc-institutional-page textarea {
+  font-size: var(--fc-inst-input) !important;
+  line-height: 1.35 !important;
+}
+
+/* Buttons */
+.fc-institutional-page button,
+.fc-institutional-page [role="button"] {
+  font-size: var(--fc-inst-button) !important;
+  line-height: 1.2 !important;
+}
+
+/* Tables */
+.fc-institutional-page table {
+  font-size: var(--fc-inst-table) !important;
+}
+
+.fc-institutional-page td {
+  font-size: var(--fc-inst-table) !important;
+  line-height: 1.45 !important;
+}
+
+.fc-institutional-page th {
+  font-size: var(--fc-inst-label) !important;
+  letter-spacing: 0.08em;
+}
+
+/* ---------------------------------------------------------
+   OVERVIEW: Portfolio Access block
+   Explicit overrides for its legacy tiny component CSS.
+   --------------------------------------------------------- */
+
+.fc-institutional-overview .fc-institutional-launcher-scale h2,
+.fc-institutional-overview .fc-institutional-launcher-scale h3 {
+  font-size: var(--fc-inst-card) !important;
+}
+
+.fc-institutional-overview .fc-institutional-launcher-scale p {
+  font-size: var(--fc-inst-body) !important;
+}
+
+.fc-institutional-overview .fc-institutional-launcher-scale small,
+.fc-institutional-overview .fc-institutional-launcher-scale span {
+  font-size: var(--fc-inst-small) !important;
+}
+
+.fc-institutional-overview .fc-institutional-launcher-scale a,
+.fc-institutional-overview .fc-institutional-launcher-scale button {
+  font-size: var(--fc-inst-button) !important;
+}
+
+/* Portfolio launcher action labels stay compact but readable */
+.fc-institutional-overview .fc-institutional-launcher-scale a {
+  line-height: 1.25 !important;
+}
+
+/* ---------------------------------------------------------
+   PORTFOLIO: match Overview scale exactly.
+   --------------------------------------------------------- */
+
+.fc-institutional-portfolio h1 {
+  font-size: var(--fc-inst-title) !important;
+}
+
+.fc-institutional-portfolio h2 {
+  font-size: var(--fc-inst-section) !important;
+}
+
+.fc-institutional-portfolio p {
+  font-size: var(--fc-inst-body) !important;
+}
+
+.fc-institutional-portfolio input,
+.fc-institutional-portfolio select {
+  min-height: 40px;
+  font-size: var(--fc-inst-input) !important;
+}
+
+.fc-institutional-portfolio button {
+  min-height: 40px;
+  font-size: var(--fc-inst-button) !important;
+}
+
+/* Keep top-level action buttons aligned visually */
+.fc-institutional-overview .run-model-button,
+.fc-institutional-portfolio button {
+  font-weight: 700;
+}
+
+/* Shared institutional sidebar: fixed readable scale */
+.quant-sidebar nav a,
+.institutional-sidebar nav a {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+}
+
+.quant-sidebar small,
+.institutional-sidebar small {
+  font-size: 10px !important;
+}
+
+/* Wide displays */
+@media (min-width: 1500px) {
+  .fc-institutional-page {
+    --fc-inst-title: 42px;
+    --fc-inst-subtitle: 15px;
+    --fc-inst-section: 19px;
+    --fc-inst-card: 16px;
+    --fc-inst-body: 14px;
+    --fc-inst-small: 11px;
+    --fc-inst-button: 13px;
+    --fc-inst-input: 13px;
+    --fc-inst-table: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .fc-institutional-page {
+    --fc-inst-title: 33px;
+    --fc-inst-subtitle: 13px;
+    --fc-inst-section: 17px;
+    --fc-inst-card: 14px;
+    --fc-inst-body: 12px;
+    --fc-inst-small: 10px;
+    --fc-inst-button: 12px;
+    --fc-inst-input: 12px;
+    --fc-inst-table: 11px;
+  }
+}

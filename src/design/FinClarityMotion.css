@@ -1,0 +1,253 @@
+/* ==============================================
+   FINCLARITY MOTION SYSTEM
+   ============================================== */
+
+
+@keyframes fc-route-enter {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate3d(
+        0,
+        8px,
+        0
+      );
+  }
+
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+}
+
+
+@keyframes fc-reveal-up {
+
+  from {
+    opacity:
+      0;
+
+    transform:
+      translate3d(
+        0,
+        14px,
+        0
+      );
+  }
+
+
+  to {
+    opacity:
+      1;
+
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+}
+
+
+@keyframes fc-reveal-soft {
+
+  from {
+    opacity:
+      0;
+  }
+
+
+  to {
+    opacity:
+      1;
+  }
+
+}
+
+
+@keyframes fc-glow-breathe {
+
+  0%,
+  100% {
+    opacity:
+      0.58;
+  }
+
+
+  50% {
+    opacity:
+      0.9;
+  }
+
+}
+
+
+/* ==============================================
+   ROUTE TRANSITION
+   ============================================== */
+
+.fc-route-stage {
+  min-height:
+    100vh;
+
+  animation:
+    fc-route-enter
+    var(--fc-duration-page)
+    var(--fc-ease-standard)
+    both;
+}
+
+
+/* ==============================================
+   REVEAL UTILITIES
+   ============================================== */
+
+.fc-reveal {
+  animation:
+    fc-reveal-up
+    520ms
+    var(--fc-ease-standard)
+    both;
+}
+
+
+.fc-reveal-soft {
+  animation:
+    fc-reveal-soft
+    420ms
+    ease-out
+    both;
+}
+
+
+.fc-delay-1 {
+  animation-delay:
+    45ms;
+}
+
+
+.fc-delay-2 {
+  animation-delay:
+    90ms;
+}
+
+
+.fc-delay-3 {
+  animation-delay:
+    135ms;
+}
+
+
+.fc-delay-4 {
+  animation-delay:
+    180ms;
+}
+
+
+/* ==============================================
+   INTERACTION UTILITIES
+   ============================================== */
+
+.fc-lift {
+  transition:
+    transform
+      var(--fc-duration-medium)
+      var(--fc-ease-standard),
+
+    border-color
+      var(--fc-duration-medium)
+      ease,
+
+    box-shadow
+      var(--fc-duration-medium)
+      ease;
+}
+
+
+.fc-lift:hover {
+  transform:
+    translate3d(
+      0,
+      -3px,
+      0
+    );
+
+  border-color:
+    var(--fc-border-strong);
+
+  box-shadow:
+    var(--fc-shadow-sm);
+}
+
+
+.fc-interactive {
+  transition:
+    transform
+      var(--fc-duration-fast)
+      var(--fc-ease-standard),
+
+    opacity
+      var(--fc-duration-fast)
+      ease;
+}
+
+
+.fc-interactive:active {
+  transform:
+    scale(
+      0.985
+    );
+}
+
+
+/* ==============================================
+   REDUCED MOTION
+   ============================================== */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  html {
+    scroll-behavior:
+      auto !important;
+  }
+
+
+  .fc-route-stage,
+  .fc-reveal,
+  .fc-reveal-soft {
+    animation:
+      none !important;
+  }
+
+
+  .fc-lift,
+  .fc-interactive {
+    transition:
+      none !important;
+  }
+
+
+  .fc-lift:hover,
+  .fc-interactive:active {
+    transform:
+      none !important;
+  }
+
+}

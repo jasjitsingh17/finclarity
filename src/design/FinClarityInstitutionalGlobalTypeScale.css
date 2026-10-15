@@ -1,0 +1,208 @@
+/* =========================================================
+   FINCLARITY — INSTITUTIONAL GLOBAL TYPE SCALE
+   One typography hierarchy for every page reached from the
+   Institutional sidebar.
+   ========================================================= */
+
+.fc-inst-standard-page {
+  --fc-inst-page-title: 40px;
+  --fc-inst-page-subtitle: 14px;
+  --fc-inst-section-title: 18px;
+  --fc-inst-card-title: 15px;
+  --fc-inst-card-value: 24px;
+  --fc-inst-body: 13px;
+  --fc-inst-small: 11px;
+  --fc-inst-label: 10px;
+  --fc-inst-button: 13px;
+  --fc-inst-table: 12px;
+
+  font-size: var(--fc-inst-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------------------------------------------------------
+   PAGE-LEVEL HEADINGS
+   Efficient Frontier / Sentiment / Black-Litterman / Factor
+   Models / Risk / Backtesting / Settings / Portfolio / Overview
+   all use this exact scale.
+   --------------------------------------------------------- */
+
+.fc-inst-standard-page h1 {
+  font-size: var(--fc-inst-page-title) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Any coloured / nested text inside a page title inherits it. */
+.fc-inst-standard-page h1 span,
+.fc-inst-standard-page h1 strong {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+/* First description below the page heading. */
+.fc-inst-standard-page header p,
+.fc-inst-standard-page .quant-heading p,
+.fc-inst-standard-page [class*="header"] > div > p {
+  font-size: var(--fc-inst-page-subtitle) !important;
+  line-height: 1.58 !important;
+}
+
+/* Eyebrow / category labels above page headings. */
+.fc-inst-standard-page [class*="eyebrow"],
+.fc-inst-standard-page [class*="kicker"] {
+  font-size: var(--fc-inst-label) !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.16em !important;
+}
+
+/* ---------------------------------------------------------
+   SECTION + CARD TYPOGRAPHY
+   --------------------------------------------------------- */
+
+.fc-inst-standard-page h2 {
+  font-size: var(--fc-inst-section-title) !important;
+  line-height: 1.28 !important;
+}
+
+.fc-inst-standard-page h3 {
+  font-size: var(--fc-inst-card-title) !important;
+  line-height: 1.32 !important;
+}
+
+.fc-inst-standard-page p {
+  font-size: var(--fc-inst-body);
+  line-height: 1.55;
+}
+
+.fc-inst-standard-page small,
+.fc-inst-standard-page label,
+.fc-inst-standard-page [class*="meta"],
+.fc-inst-standard-page [class*="label"] {
+  font-size: var(--fc-inst-small) !important;
+  line-height: 1.45 !important;
+}
+
+/* Large metric numbers */
+.fc-inst-standard-page article > strong,
+.fc-inst-standard-page section > strong {
+  font-size: var(--fc-inst-card-value);
+  line-height: 1.15;
+}
+
+/* ---------------------------------------------------------
+   BUTTONS / FORMS
+   --------------------------------------------------------- */
+
+.fc-inst-standard-page button,
+.fc-inst-standard-page [role="button"] {
+  font-size: var(--fc-inst-button) !important;
+  line-height: 1.2 !important;
+}
+
+.fc-inst-standard-page input,
+.fc-inst-standard-page select,
+.fc-inst-standard-page textarea {
+  font-size: var(--fc-inst-body) !important;
+  line-height: 1.35 !important;
+}
+
+/* ---------------------------------------------------------
+   TABLES
+   --------------------------------------------------------- */
+
+.fc-inst-standard-page table {
+  font-size: var(--fc-inst-table) !important;
+}
+
+.fc-inst-standard-page th {
+  font-size: var(--fc-inst-label) !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.08em;
+}
+
+.fc-inst-standard-page td {
+  font-size: var(--fc-inst-table) !important;
+  line-height: 1.45 !important;
+}
+
+/* ---------------------------------------------------------
+   OVERVIEW-SPECIFIC NORMALISATION
+   The Overview previously behaved like a landing hero.
+   --------------------------------------------------------- */
+
+.fc-inst-standard-page.fc-institutional-overview .quant-heading h1 {
+  font-size: var(--fc-inst-page-title) !important;
+}
+
+.fc-inst-standard-page.fc-institutional-overview .quant-heading {
+  margin-bottom: 24px !important;
+}
+
+.fc-inst-standard-page.fc-institutional-overview .quant-content {
+  padding-top: 34px !important;
+}
+
+.fc-inst-standard-page.fc-institutional-overview
+.fc-institutional-launcher-scale h2,
+.fc-inst-standard-page.fc-institutional-overview
+.fc-institutional-launcher-scale h3 {
+  font-size: var(--fc-inst-card-title) !important;
+}
+
+.fc-inst-standard-page.fc-institutional-overview
+.fc-institutional-launcher-scale p {
+  font-size: var(--fc-inst-body) !important;
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR
+   One exact sidebar type scale across every page.
+   --------------------------------------------------------- */
+
+.quant-sidebar nav a,
+.institutional-sidebar nav a {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+}
+
+.quant-sidebar small,
+.institutional-sidebar small {
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (min-width: 1500px) {
+  .fc-inst-standard-page {
+    --fc-inst-page-title: 42px;
+    --fc-inst-page-subtitle: 15px;
+    --fc-inst-section-title: 19px;
+    --fc-inst-card-title: 16px;
+    --fc-inst-card-value: 25px;
+    --fc-inst-body: 14px;
+    --fc-inst-small: 11px;
+    --fc-inst-button: 13px;
+    --fc-inst-table: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .fc-inst-standard-page {
+    --fc-inst-page-title: 32px;
+    --fc-inst-page-subtitle: 13px;
+    --fc-inst-section-title: 17px;
+    --fc-inst-card-title: 14px;
+    --fc-inst-card-value: 22px;
+    --fc-inst-body: 12px;
+    --fc-inst-small: 10px;
+    --fc-inst-button: 12px;
+    --fc-inst-table: 11px;
+  }
+}

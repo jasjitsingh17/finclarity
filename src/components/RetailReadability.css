@@ -1,0 +1,317 @@
+/* ==========================================================
+   FINCLARITY RETAIL — READABILITY PASS
+   ========================================================== */
+
+
+/* Sidebar */
+
+.retail-live-sidebar {
+  font-size: 14px;
+}
+
+
+.retail-live-nav {
+  min-height: 47px;
+  font-size: 13px !important;
+}
+
+
+.retail-nav-section {
+  font-size: 9px !important;
+  letter-spacing: .17em;
+}
+
+
+.retail-live-logo strong {
+  font-size: 21px !important;
+}
+
+
+.retail-live-logo small {
+  font-size: 8px !important;
+  letter-spacing: .18em;
+}
+
+
+.retail-live-sidebar-bottom strong {
+  font-size: 11px !important;
+}
+
+
+.retail-live-sidebar-bottom span,
+.retail-switch-investor {
+  font-size: 10px !important;
+}
+
+
+/* Dashboard */
+
+.retail-live-main {
+  color: #dfe9f0;
+}
+
+
+.retail-live-main h1 {
+  line-height: 1.08;
+}
+
+
+.retail-live-main h2 {
+  color: #edf5fa;
+  font-size: 18px;
+}
+
+
+.retail-live-main p {
+  line-height: 1.55;
+}
+
+
+.retail-live-kicker {
+  font-size: 10px !important;
+}
+
+
+.retail-live-hero p {
+  font-size: 13px !important;
+  color: #8ca6b8 !important;
+}
+
+
+.retail-live-summary-card span,
+.retail-live-card-label {
+  color: #819eb1 !important;
+  font-size: 10px !important;
+}
+
+
+.retail-live-summary-card strong {
+  font-size: 25px !important;
+}
+
+
+.retail-live-summary-card small {
+  color: #718ea1 !important;
+  font-size: 9px !important;
+}
+
+
+.retail-live-status-strip {
+  font-size: 9px !important;
+}
+
+
+.retail-live-card p,
+.retail-live-panel p {
+  color: #819daf !important;
+  font-size: 10px !important;
+}
+
+
+/* Research pages */
+
+.retail-research-header > div > span {
+  font-size: 10px !important;
+}
+
+
+.retail-research-header h1 {
+  font-size: 38px !important;
+}
+
+
+.retail-research-header p {
+  color: #89a5b7 !important;
+  font-size: 13px !important;
+}
+
+
+.retail-research-action {
+  font-size: 11px !important;
+}
+
+
+.retail-research-kpis span,
+.retail-research-kpis small {
+  font-size: 9px !important;
+}
+
+
+.retail-research-kpis strong {
+  font-size: 24px !important;
+}
+
+
+.retail-research-panel-heading h2 {
+  font-size: 17px !important;
+}
+
+
+.retail-research-panel-heading p {
+  font-size: 10px !important;
+}
+
+
+.retail-research-row {
+  font-size: 11px !important;
+}
+
+
+.retail-research-row.header {
+  font-size: 9px !important;
+}
+
+
+.retail-sentiment-pill {
+  font-size: 9px !important;
+}
+
+
+.retail-detail-grid span,
+.retail-detail-grid small {
+  font-size: 9px !important;
+}
+
+
+.retail-detail-grid strong {
+  font-size: 19px !important;
+}
+
+
+.retail-explanation-stack strong {
+  font-size: 11px !important;
+}
+
+
+.retail-explanation-stack p {
+  color: #87a2b3 !important;
+  font-size: 10px !important;
+}
+
+
+.retail-volatility-list header {
+  font-size: 11px !important;
+}
+
+
+.retail-methodology-note strong {
+  font-size: 10px !important;
+}
+
+
+.retail-methodology-note p {
+  color: #87a5b5 !important;
+  font-size: 10px !important;
+}
+
+
+.retail-research-footer {
+  font-size: 9px !important;
+}
+
+
+/* Portfolio Health */
+
+.retail-health-hero p {
+  color: #88a4b5 !important;
+  font-size: 11px !important;
+}
+
+
+.retail-health-component-grid article > span,
+.retail-health-component-grid small {
+  font-size: 9px !important;
+}
+
+
+.retail-health-component-grid strong {
+  font-size: 24px !important;
+}
+
+
+.retail-health-flag-grid strong {
+  font-size: 11px !important;
+}
+
+
+.retail-health-flag-grid p {
+  color: #819dad !important;
+  font-size: 9px !important;
+}
+
+
+/* Understand page */
+
+.retail-understand-grid span {
+  font-size: 9px !important;
+}
+
+
+.retail-understand-grid strong {
+  font-size: 18px !important;
+}
+
+
+.retail-understand-grid p {
+  color: #84a0b1 !important;
+  font-size: 10px !important;
+}
+
+
+.retail-glossary strong {
+  font-size: 11px !important;
+}
+
+
+.retail-glossary p {
+  color: #819cad !important;
+  font-size: 9px !important;
+}
+
+
+/* Portfolio Manager */
+
+.retail-portfolio-header > div > span {
+  font-size: 10px !important;
+}
+
+
+.retail-portfolio-header p {
+  color: #8da7b9 !important;
+  font-size: 13px !important;
+}
+
+
+.retail-holdings-editor p,
+.retail-link-workspace p {
+  color: #85a1b3 !important;
+  font-size: 12px !important;
+}
+
+
+.retail-editor-row.header {
+  font-size: 10px !important;
+}
+
+
+/* Improve contrast universally */
+
+.retail-live-dashboard small,
+.retail-research-page small,
+.retail-portfolio-manager small {
+  opacity: .95;
+}
+
+
+/* Keep dense tables readable on normal monitors */
+
+@media (
+  min-width: 1200px
+) {
+
+  .retail-research-content,
+  .retail-portfolio-content {
+    max-width: 1500px;
+  }
+
+}

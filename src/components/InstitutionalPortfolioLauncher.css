@@ -1,0 +1,100 @@
+.institutional-home-portfolio {
+  margin-bottom: 22px;
+  padding: 20px;
+  border: 1px solid rgba(112,163,194,.13);
+  border-radius: 14px;
+  background: #0d2032;
+}
+
+.institutional-home-portfolio-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.institutional-home-portfolio-heading > div:first-child > span {
+  color: #4ca4cc;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .17em;
+}
+
+.institutional-home-portfolio h2 {
+  margin: 6px 0 0;
+  font-size: 16px;
+}
+
+.institutional-home-portfolio p {
+  color: #68869c;
+  font-size: 9px;
+}
+
+.institutional-active-portfolio {
+  min-width: 230px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  background: rgba(98,221,194,.05);
+}
+
+.institutional-active-portfolio small,
+.institutional-active-portfolio strong,
+.institutional-active-portfolio span,
+.institutional-active-portfolio em {
+  display: block;
+}
+
+.institutional-active-portfolio small {
+  color: #60dbc8;
+  font-size: 7px;
+}
+
+.institutional-active-portfolio strong {
+  margin-top: 7px;
+}
+
+.institutional-active-portfolio span,
+.institutional-active-portfolio em {
+  margin-top: 5px;
+  color: #7893a6;
+  font-size: 8px;
+  font-style: normal;
+}
+
+.institutional-portfolio-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+}
+
+.institutional-portfolio-entry-grid a {
+  min-height: 112px;
+  padding: 15px;
+  border: 1px solid rgba(111,159,190,.11);
+  border-radius: 11px;
+  color: inherit;
+  background: #091a2a;
+  text-decoration: none;
+}
+
+.institutional-portfolio-entry-grid a > svg {
+  color: #63ddca;
+}
+
+.institutional-portfolio-entry-grid strong {
+  display: block;
+  margin-top: 11px;
+  font-size: 10px;
+}
+
+.institutional-portfolio-entry-grid p {
+  min-height: 30px;
+  margin: 6px 0;
+  font-size: 8px;
+}
+
+.institutional-portfolio-entry-grid span {
+  color: #56cdbd;
+  font-size: 7px;
+  font-weight: 800;
+}

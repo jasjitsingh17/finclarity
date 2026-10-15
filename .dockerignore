@@ -1,0 +1,38 @@
+# Python / virtualenv
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+
+# Frontend build / dependencies
+node_modules
+dist
+
+# Local environment / OS
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Git / editor
+.git
+.gitignore
+.vscode
+.idea
+
+# FinClarity safety backups
+*.before-*
+*.backup
+*.bak
+
+# Files not needed in the backend container
+tests
+src
+public
+docs
+*.md
+package.json
+package-lock.json
+vite.config.*
+eslint.config.*

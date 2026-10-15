@@ -1,0 +1,112 @@
+/* =========================================================
+   FINCLARITY — INSTITUTIONAL OVERVIEW SCALE FIX
+   Makes Overview use the same visual scale as the other
+   Institutional pages. Loaded directly by the dashboard.
+   ========================================================= */
+
+/* Main Overview headline = standard Institutional page title */
+.fc-institutional-overview .quant-heading h1 {
+  font-size: 42px !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  margin-bottom: 12px !important;
+}
+
+.fc-institutional-overview .quant-heading h1 span {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+/* Overview eyebrow and subtitle */
+.fc-institutional-overview .quant-eyebrow {
+  font-size: 10px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.17em !important;
+}
+
+.fc-institutional-overview .quant-heading p {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  max-width: 760px;
+}
+
+/* Reduce the oversized whitespace between launcher and hero */
+.fc-institutional-overview .quant-content {
+  padding-top: 46px !important;
+}
+
+.fc-institutional-overview .quant-heading {
+  margin-bottom: 26px !important;
+}
+
+/* Portfolio Access should feel like a normal section, not another hero */
+.fc-institutional-overview .fc-institutional-launcher-scale h1,
+.fc-institutional-overview .fc-institutional-launcher-scale h2 {
+  font-size: 18px !important;
+  line-height: 1.28 !important;
+}
+
+.fc-institutional-overview .fc-institutional-launcher-scale h3,
+.fc-institutional-overview .fc-institutional-launcher-scale strong {
+  font-size: 15px !important;
+  line-height: 1.3 !important;
+}
+
+.fc-institutional-overview .fc-institutional-launcher-scale p {
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.fc-institutional-overview .fc-institutional-launcher-scale small,
+.fc-institutional-overview .fc-institutional-launcher-scale span {
+  line-height: 1.45 !important;
+}
+
+/* Metric cards = same hierarchy as the other Institutional pages */
+.fc-institutional-overview .quant-content article h2,
+.fc-institutional-overview .quant-content article h3,
+.fc-institutional-overview .quant-content section h2,
+.fc-institutional-overview .quant-content section h3 {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+}
+
+.fc-institutional-overview .quant-content article > strong,
+.fc-institutional-overview .quant-content section > strong {
+  font-size: 23px !important;
+  line-height: 1.15 !important;
+}
+
+/* Keep the main CTA aligned with other institutional pages */
+.fc-institutional-overview .run-model-button {
+  min-height: 46px;
+  padding-inline: 18px;
+  font-size: 13px !important;
+}
+
+/* Sidebar remains identical across Overview and every other page */
+.fc-institutional-overview ~ * .quant-sidebar,
+.quant-sidebar {
+  font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+  .fc-institutional-overview .quant-heading h1 {
+    font-size: 36px !important;
+  }
+
+  .fc-institutional-overview .quant-content {
+    padding-top: 34px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .fc-institutional-overview .quant-heading h1 {
+    font-size: 32px !important;
+  }
+
+  .fc-institutional-overview .quant-heading p {
+    font-size: 13px !important;
+  }
+}

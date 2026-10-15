@@ -1,0 +1,417 @@
+.frontier-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 238px 1fr;
+  background: #071525;
+  color: #eaf3fb;
+}
+
+.frontier-main {
+  min-width: 0;
+  padding: 30px 34px 46px;
+}
+
+.frontier-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.frontier-eyebrow {
+  margin: 0 0 7px;
+  color: #4fa7d0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.frontier-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.frontier-header p {
+  margin: 8px 0 0;
+  color: #708da4;
+  font-size: 12px;
+}
+
+.frontier-run-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 9px;
+  color: #062029;
+  background: #68ddcf;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.frontier-run-button:disabled {
+  opacity: .65;
+}
+
+.frontier-spin {
+  animation: frontier-spin 1s linear infinite;
+}
+
+@keyframes frontier-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.frontier-active-portfolio {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(117,167,198,.13);
+  border-radius: 12px;
+  background: #0d2032;
+}
+
+.frontier-active-portfolio > div {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #091a2a;
+}
+
+.frontier-active-portfolio span {
+  display: block;
+  color: #55758c;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+.frontier-active-portfolio strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.frontier-error {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  color: #efa1a1;
+  background: rgba(239,120,120,.07);
+  font-size: 10px;
+}
+
+.frontier-empty {
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgba(117,167,198,.13);
+  border-radius: 14px;
+  background: #0d2032;
+  text-align: center;
+}
+
+.frontier-empty svg {
+  color: #61ddca;
+}
+
+.frontier-empty h2 {
+  margin: 15px 0 8px;
+}
+
+.frontier-empty p {
+  max-width: 520px;
+  margin: 0;
+  color: #6c889c;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.frontier-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.frontier-summary-card,
+.frontier-panel {
+  border: 1px solid rgba(117,167,198,.13);
+  border-radius: 13px;
+  background: #0d2032;
+}
+
+.frontier-summary-card {
+  min-height: 105px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.frontier-summary-card span {
+  color: #668399;
+  font-size: 8px;
+}
+
+.frontier-summary-card strong {
+  margin-top: 7px;
+  font-size: 21px;
+}
+
+.frontier-summary-card small {
+  margin-top: auto;
+  color: #506f84;
+  font-size: 7px;
+}
+
+.frontier-panel {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.frontier-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.frontier-panel-heading h2 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.frontier-panel-heading p {
+  margin: 5px 0 0;
+  color: #637f94;
+  font-size: 8px;
+}
+
+.frontier-panel-heading > svg {
+  color: #5bdcca;
+}
+
+.frontier-chart {
+  width: 100%;
+  height: 360px;
+}
+
+.frontier-axis {
+  stroke: rgba(130,170,195,.2);
+  stroke-width: 1;
+}
+
+.frontier-curve {
+  fill: none;
+  stroke: #62d9ef;
+  stroke-width: 3;
+}
+
+.frontier-cml {
+  fill: none;
+  stroke: #dea85f;
+  stroke-width: 2;
+  stroke-dasharray: 8 7;
+}
+
+.frontier-marker {
+  stroke: #071525;
+  stroke-width: 3;
+}
+
+.frontier-marker.current {
+  fill: #dbeaf1;
+}
+
+.frontier-marker.sharpe {
+  fill: #62ddc2;
+}
+
+.frontier-marker.minimum {
+  fill: #799dd5;
+}
+
+.frontier-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  color: #668399;
+  font-size: 8px;
+}
+
+.frontier-chart-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.frontier-chart-legend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.frontier-chart-legend i.curve {
+  background: #62d9ef;
+}
+
+.frontier-chart-legend i.current {
+  background: #dbeaf1;
+}
+
+.frontier-chart-legend i.sharpe {
+  background: #62ddc2;
+}
+
+.frontier-chart-legend i.minimum {
+  background: #799dd5;
+}
+
+.frontier-chart-legend i.cml {
+  background: #dea85f;
+}
+
+.frontier-two-column {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 16px;
+}
+
+.frontier-table-row {
+  min-height: 49px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr .8fr;
+  gap: 10px;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid rgba(113,158,186,.08);
+  color: #8da5b6;
+  font-size: 9px;
+}
+
+.frontier-table-row.header {
+  min-height: 32px;
+  color: #53748b;
+  font-size: 7px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.frontier-table-row strong {
+  color: #d8e7ef;
+}
+
+.frontier-allocation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.frontier-allocation-item > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  font-size: 9px;
+}
+
+.frontier-allocation-item span {
+  color: #7691a4;
+}
+
+.frontier-allocation-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #071725;
+}
+
+.frontier-allocation-track div {
+  height: 100%;
+  border-radius: inherit;
+  background: #62ddc2;
+}
+
+.frontier-disclosure {
+  display: flex;
+  gap: 11px;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(98,221,194,.16);
+  border-radius: 10px;
+  background: rgba(98,221,194,.05);
+}
+
+.frontier-disclosure svg {
+  flex-shrink: 0;
+  color: #62ddc2;
+}
+
+.frontier-disclosure strong {
+  font-size: 9px;
+}
+
+.frontier-disclosure p {
+  margin: 5px 0 0;
+  color: #69869a;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.frontier-methodology {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  padding: 10px 13px;
+  border-radius: 9px;
+  color: #56758a;
+  background: #091a2a;
+  font-size: 7px;
+}
+
+.frontier-no-chart {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: #617f94;
+}
+
+@media (max-width: 1100px) {
+
+  .frontier-page {
+    grid-template-columns: 1fr;
+  }
+
+  .frontier-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .frontier-two-column {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .frontier-main {
+    padding: 20px;
+  }
+
+  .frontier-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .frontier-active-portfolio,
+  .frontier-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

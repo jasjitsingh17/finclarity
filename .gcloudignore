@@ -1,0 +1,26 @@
+# Files excluded from Cloud Run source upload
+.gcloudignore
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+node_modules
+dist
+.env
+.env.*
+!.env.example
+.DS_Store
+*.before-*
+*.backup
+*.bak
+tests
+src
+public
+docs
+package.json
+package-lock.json
+vite.config.*
+eslint.config.*

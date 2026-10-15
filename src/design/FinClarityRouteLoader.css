@@ -1,0 +1,115 @@
+/* =========================================================
+   FINCLARITY — ROUTE CHUNK LOADER
+   Only visible while a lazily loaded page chunk is fetched.
+   ========================================================= */
+
+.fc-route-loader {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background:
+    radial-gradient(
+      circle at 50% 34%,
+      rgba(61, 174, 159, 0.08),
+      transparent 34%
+    ),
+    #061521;
+  color: #dceaf0;
+}
+
+.fc-route-loader__inner {
+  width: min(360px, 88vw);
+  text-align: center;
+}
+
+.fc-route-loader__mark {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 18px;
+  border: 1px solid rgba(94, 208, 181, 0.26);
+  border-radius: 12px;
+  background: rgba(94, 208, 181, 0.055);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.18);
+}
+
+.fc-route-loader__mark::before,
+.fc-route-loader__mark::after {
+  content: "";
+  position: absolute;
+}
+
+.fc-route-loader__mark::before {
+  left: 12px;
+  right: 12px;
+  bottom: 13px;
+  height: 1px;
+  background: rgba(94, 208, 181, 0.36);
+}
+
+.fc-route-loader__mark::after {
+  width: 20px;
+  height: 10px;
+  left: 12px;
+  top: 16px;
+  border-left: 2px solid #5ed0b5;
+  border-bottom: 2px solid #5ed0b5;
+  transform: skewY(-24deg) rotate(-8deg);
+}
+
+.fc-route-loader__brand {
+  display: block;
+  margin-bottom: 8px;
+  color: #eef6f8;
+  font-size: 18px;
+  font-weight: 760;
+  letter-spacing: -0.025em;
+}
+
+.fc-route-loader__copy {
+  display: block;
+  color: #718f9f;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.fc-route-loader__bar {
+  position: relative;
+  overflow: hidden;
+  height: 2px;
+  margin-top: 22px;
+  border-radius: 999px;
+  background: rgba(108, 151, 170, 0.12);
+}
+
+.fc-route-loader__bar::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -38%;
+  width: 38%;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #5ed0b5,
+      transparent
+    );
+  animation: fc-route-load 900ms ease-in-out infinite;
+}
+
+@keyframes fc-route-load {
+  to {
+    left: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-route-loader__bar::after {
+    animation: none;
+    left: 31%;
+  }
+}

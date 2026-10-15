@@ -1,0 +1,366 @@
+/* =========================================================
+   FINCLARITY — INTERIOR POLISH
+   Shared visual refinement for Retail + Institutional pages.
+   CSS-only: no analytics or routing logic.
+   ========================================================= */
+
+@keyframes fc-interior-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 7px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.retail-live-main,
+.quant-main,
+.risk-main,
+.frontier-main,
+.factor-main,
+.backtest-main,
+.black-litterman-main,
+.settings-main,
+.institutional-portfolio-main {
+  animation:
+    fc-interior-enter
+    360ms
+    var(--fc-ease-standard)
+    both;
+}
+
+.retail-live-sidebar,
+.quant-sidebar,
+.institutional-sidebar {
+  border-right-color:
+    rgba(111, 169, 193, 0.12) !important;
+
+  box-shadow:
+    12px 0 36px
+    rgba(0, 0, 0, 0.08);
+}
+
+.retail-live-sidebar nav a,
+.quant-sidebar nav a,
+.institutional-sidebar nav a {
+  position: relative;
+
+  transition:
+    transform 180ms var(--fc-ease-standard),
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.retail-live-sidebar nav a:hover,
+.quant-sidebar nav a:hover,
+.institutional-sidebar nav a:hover {
+  transform:
+    translateX(3px);
+}
+
+.retail-live-sidebar nav a.active,
+.retail-live-sidebar nav a[aria-current="page"],
+.quant-sidebar nav a.active,
+.quant-sidebar nav a[aria-current="page"],
+.institutional-sidebar nav a.active,
+.institutional-sidebar nav a[aria-current="page"] {
+  box-shadow:
+    inset 3px 0 0
+      rgba(94, 208, 181, 0.68),
+    0 8px 24px
+      rgba(0, 0, 0, 0.08);
+}
+
+.retail-live-logo,
+.institutional-logo-home-hitbox,
+.quant-switch,
+.retail-switch-investor,
+.institutional-home-link {
+  transition:
+    transform 180ms var(--fc-ease-standard),
+    opacity 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.retail-live-logo:hover {
+  transform:
+    translateY(-1px);
+}
+
+.quant-switch:hover,
+.retail-switch-investor:hover,
+.institutional-home-link:hover {
+  transform:
+    translateX(-2px);
+}
+
+.retail-research-header,
+.retail-action-header,
+.quant-heading,
+.risk-header,
+.frontier-header,
+.factor-header,
+.backtest-header,
+.black-litterman-header,
+.settings-header {
+  position: relative;
+}
+
+.retail-research-header::after,
+.retail-action-header::after,
+.risk-header::after,
+.frontier-header::after,
+.factor-header::after,
+.backtest-header::after,
+.black-litterman-header::after,
+.settings-header::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -20px;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(94, 208, 181, 0.18),
+      rgba(105, 191, 208, 0.06),
+      transparent 72%
+    );
+}
+
+.run-model-button,
+.risk-run-button,
+.frontier-run-button,
+.factor-run-button,
+.backtest-run-button,
+.black-litterman-run-button,
+.retail-research-action,
+.retail-action-header button {
+  transition:
+    transform 180ms var(--fc-ease-standard),
+    box-shadow 180ms ease,
+    filter 180ms ease,
+    border-color 180ms ease;
+}
+
+.run-model-button:hover:not(:disabled),
+.risk-run-button:hover:not(:disabled),
+.frontier-run-button:hover:not(:disabled),
+.factor-run-button:hover:not(:disabled),
+.backtest-run-button:hover:not(:disabled),
+.black-litterman-run-button:hover:not(:disabled),
+.retail-research-action:hover,
+.retail-action-header button:hover:not(:disabled) {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 30px
+    rgba(66, 191, 167, 0.12);
+
+  filter:
+    brightness(1.035);
+}
+
+.run-model-button:active:not(:disabled),
+.risk-run-button:active:not(:disabled),
+.frontier-run-button:active:not(:disabled),
+.factor-run-button:active:not(:disabled),
+.backtest-run-button:active:not(:disabled),
+.black-litterman-run-button:active:not(:disabled),
+.retail-research-action:active,
+.retail-action-header button:active:not(:disabled) {
+  transform:
+    translateY(0)
+    scale(0.985);
+}
+
+.retail-live-panel,
+.retail-research-empty,
+.retail-action-overview > article,
+.retail-action-content section,
+.quant-content > section,
+.risk-main section,
+.frontier-main section,
+.factor-main section,
+.backtest-main section,
+.black-litterman-main section {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.retail-live-panel:hover,
+.retail-action-overview > article:hover {
+  border-color:
+    rgba(112, 172, 194, 0.18);
+
+  box-shadow:
+    0 14px 34px
+    rgba(0, 0, 0, 0.08);
+}
+
+.quant-icon-button,
+.quant-profile,
+.fc-topbar-clickable,
+.fc-profile-button {
+  transition:
+    transform 170ms var(--fc-ease-standard),
+    border-color 170ms ease,
+    background 170ms ease,
+    box-shadow 170ms ease;
+}
+
+.quant-icon-button:hover,
+.fc-topbar-clickable:hover,
+.fc-profile-button:hover {
+  transform:
+    translateY(-1px);
+
+  border-color:
+    rgba(94, 208, 181, 0.28);
+
+  box-shadow:
+    0 8px 22px
+    rgba(0, 0, 0, 0.12);
+}
+
+.quant-search,
+input,
+select,
+textarea {
+  transition:
+    border-color 170ms ease,
+    box-shadow 170ms ease,
+    background 170ms ease;
+}
+
+.quant-search:focus-within,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color:
+    rgba(94, 208, 181, 0.34) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(94, 208, 181, 0.055);
+}
+
+.retail-live-main table tbody tr,
+.quant-main table tbody tr,
+.risk-main table tbody tr,
+.factor-main table tbody tr,
+.backtest-main table tbody tr {
+  transition:
+    background 150ms ease;
+}
+
+.retail-live-main table tbody tr:hover,
+.quant-main table tbody tr:hover,
+.risk-main table tbody tr:hover,
+.factor-main table tbody tr:hover,
+.backtest-main table tbody tr:hover {
+  background:
+    rgba(94, 208, 181, 0.025);
+}
+
+* {
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    rgba(91, 148, 169, 0.34)
+    rgba(4, 16, 25, 0.22);
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background:
+    rgba(4, 16, 25, 0.22);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid
+    rgba(4, 16, 25, 0.82);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(91, 148, 169, 0.34);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(94, 208, 181, 0.42);
+}
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .retail-live-main,
+  .quant-main,
+  .risk-main,
+  .frontier-main,
+  .factor-main,
+  .backtest-main,
+  .black-litterman-main,
+  .settings-main,
+  .institutional-portfolio-main {
+    animation:
+      none !important;
+  }
+
+  .retail-live-sidebar nav a,
+  .quant-sidebar nav a,
+  .institutional-sidebar nav a,
+  .run-model-button,
+  .risk-run-button,
+  .frontier-run-button,
+  .factor-run-button,
+  .backtest-run-button,
+  .black-litterman-run-button,
+  .retail-research-action,
+  .retail-action-header button,
+  .quant-icon-button,
+  .quant-profile,
+  .fc-topbar-clickable,
+  .fc-profile-button {
+    transition:
+      none !important;
+  }
+
+  .retail-live-sidebar nav a:hover,
+  .quant-sidebar nav a:hover,
+  .institutional-sidebar nav a:hover,
+  .run-model-button:hover,
+  .risk-run-button:hover,
+  .frontier-run-button:hover,
+  .factor-run-button:hover,
+  .backtest-run-button:hover,
+  .black-litterman-run-button:hover {
+    transform:
+      none !important;
+  }
+}
