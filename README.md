@@ -1,379 +1,148 @@
-'# FinClarity
+# FinClarity
 
-**Investment intelligence for retail and institutional-style portfolio analysis.**
+**Portfolio intelligence for retail investors and institutional-style research.**
 
-FinClarity is a full-stack finance research platform that combines portfolio analytics, historical risk, FX-aware performance, sentiment intelligence and quantitative allocation tools in one interface.
+[Live platform](https://finclarity-ebon.vercel.app) · [API health](https://finclarity-api.duckdns.org/api/health)
 
-The project was built as a portfolio/recruiter project to demonstrate how financial theory, data engineering and modern web development can be combined into a practical investment-research workflow.
+FinClarity is a full-stack investment research platform bringing together portfolio analytics, historical market data, financial-news sentiment and quantitative allocation models in two connected experiences: **Retail Investor** and **Institutional Investor**. Built as a finance and software-engineering portfolio project, it emphasises clear methodology, data-quality disclosures and useful decision-support interfaces.
 
-> **Status:** Portfolio / research project  
-> **Use case:** Education, research and technical demonstration  
-> **Not investment advice:** Outputs are analytical estimates and should not be treated as recommendations.
+> **Project status — October 2026:** The frontend is deployed on Vercel; the FastAPI backend is hosted on Oracle Cloud. Six institutional analytics APIs have been observed returning successful HTTP responses. **171 local Python tests passed**, and the frontend production build succeeded. The updated backtesting accounting is committed to GitHub but **not yet deployed to Oracle**.
 
----
+## Explore the platform
 
-## What FinClarity does
+| Retail Investor | Institutional Investor |
+| --- | --- |
+| Portfolio entry and CSV import | Shared portfolio, manual entry and CSV import |
+| Dashboard and Portfolio Health | Efficient Frontier and allocation optimisation |
+| Risk Analysis and stress scenarios | Risk Analytics and factor rankings |
+| Sentiment Insights and news evidence | Sentiment Intelligence and Black–Litterman |
+| Diversification and Exposure Intelligence | Walk-forward Backtesting and Model Settings |
+| Action Centre and educational explanations | Research-oriented configuration and model outputs |
 
-FinClarity has two user experiences:
+Retail and Institutional have distinct navigation and mobile layouts. Broker and PMS/OMS linking interfaces are **planned integrations, not operational connections**.
 
-### Retail Investor
+## How it works
 
-The Retail workflow is designed to turn a user-entered portfolio into a clear set of diagnostics.
+### Retail workflow
 
-Core modules include:
+1. Enter holdings manually or import a CSV, and select a display currency.
+2. View holdings, portfolio market value and composition.
+3. Run analysis to produce risk, sentiment and portfolio-health diagnostics.
+4. Explore performance, diversification, exposure, stress testing and prioritised attention items.
+5. Use plain-language explanations to understand findings and limitations.
 
-- Portfolio dashboard
-- Portfolio Action Centre
-- Sentiment Insights
-- Risk Analysis
-- Historical Performance
-- Diversification Analysis
-- Stress Testing
-- Exposure Intelligence
-- Portfolio Health
-- “Understand My Portfolio” education layer
+### Institutional workflow
 
-The Retail experience emphasizes clear data-quality states such as **available**, **partial**, **unavailable**, **stale analysis**, and **no material findings**, rather than silently substituting missing data with neutral values.
+1. Save a shared portfolio used across institutional analytics modules.
+2. Estimate risk and evaluate mean–variance allocation alternatives.
+3. Inspect financial-news sentiment and confidence by ticker.
+4. Construct Black–Litterman views from sentiment and uncertainty.
+5. Compare factor rankings and walk-forward strategy results against benchmarks.
 
-### Institutional Investor
+When portfolio inputs change, the UI can mark saved model outputs as stale rather than silently presenting them as current.
 
-The Institutional workflow exposes more advanced quantitative research tools:
+## Quantitative methodology
 
-- Portfolio overview and shared portfolio state
-- Efficient Frontier
-- Sentiment Intelligence
-- Black-Litterman allocation
-- Factor Models
-- Risk Analytics
-- Backtesting
-- Model Settings
+| Module | Approach | Key caveat |
+| --- | --- | --- |
+| Performance | Historical constant-weight daily-rebalanced simulation | Not an investor's actual realised P&L |
+| Risk Analytics | Volatility, Sharpe/Sortino, drawdown, historical VaR/CVaR | Historical estimates, not guaranteed loss bounds |
+| Diversification | Concentration, correlation and exposure diagnostics | Different measures can give different impressions of diversification |
+| Stress Testing | Historical stress windows and deterministic shocks | Scenarios are assumptions, not predictions |
+| Efficient Frontier | Historical mean–variance optimisation, minimum variance and maximum Sharpe | Historical arithmetic means are unstable forecasts |
+| Black–Litterman | Equilibrium-style prior adjusted with confidence-weighted sentiment views | Sentiment is a research signal, not predictive certainty |
+| Factor Models | Standardised momentum, low volatility, residual risk and sentiment scores | Relative ranks, not return forecasts |
+| Backtesting | Trailing training windows, scheduled rebalancing, benchmark comparison, costs | Historical sentiment is excluded without point-in-time news archives |
 
-Institutional model outputs persist across navigation so users can compare results without rerunning every model.
+### Currency-aware research
 
----
+Where supported, the platform converts historical price series into the chosen base currency **before** computing portfolio returns and risk. Benchmarks must be comparable in the same currency. Missing FX/market data and incomplete news coverage should be explicitly distinguished from neutral outcomes.
 
-## Why this project is different
+### Financial-news sentiment
 
-FinClarity is not a static dashboard. The project focuses on research integrity and model consistency.
+FinClarity uses financial text classification with **FinBERT** and supports ticker-level news context, confidence-aware status signals and institutional sentiment views. Headline counts, recency and coverage influence the strength of evidence; classification is not a statement of factual truth or a guarantee of investment performance.
 
-### FX-aware portfolio analytics
+### Walk-forward backtesting and current deployment distinction
 
-Historical performance, risk, diversification and historical stress calculations are converted into the selected base currency before returns are calculated.
+The backtest estimates asset return and covariance statistics using trailing historical windows and tests subsequent returns. Its configurable inputs include training period, rebalance frequency, risk-free rate, long-only weight bounds and transaction costs.
 
-This avoids mixing local-currency returns across holdings.
+The **GitHub version** includes improvements to let holdings weights drift between scheduled rebalances and calculate turnover against drifted pre-trade weights. Targeted financial validation tests were added. **The publicly running Oracle backend may still use the previous engine until deployment access is restored.**
 
-Examples:
+Historical sentiment signals are not included in this strategy backtest because the platform does not currently provide archived, point-in-time financial-news snapshots.
 
-- USD security in GBP base: USD price history × USD/GBP FX history
-- GBp/GBX instruments are normalized into GBP before portfolio conversion
-- Benchmarks are converted into the same selected base currency
-- Missing currency metadata is surfaced rather than silently guessed
-- Historical FX alignment avoids future-data backfilling
-
-### Explicit coverage handling
-
-The application distinguishes between:
-
-- complete analysis
-- partial coverage
-- unavailable data
-- stale analysis
-- no observations
-- neutral sentiment
-- negative sentiment
-
-This matters because “no data” and “neutral” are not the same thing.
-
-### Sentiment as research context
-
-FinClarity uses finance-focused NLP to classify financial text and support:
-
-- holding-level sentiment
-- portfolio-level sentiment
-- headline drill-down
-- confidence-aware Portfolio Health logic
-- institutional sentiment views
-
-Sentiment is treated as research context, not as a price forecast.
-
-### Shared portfolio state
-
-Retail and Institutional workflows both use shared portfolio state across their respective modules so analytics remain internally consistent.
-
----
-
-## Technical architecture
+## Architecture
 
 ```mermaid
 flowchart LR
-    U[User] --> F[React / Vite Frontend]
-    F --> A[FastAPI API Layer]
-
-    A --> M[Market Data Services]
-    A --> FX[FX / Currency Services]
-    A --> S[Sentiment Services]
-    A --> Q[Quant Analytics]
-
-    M --> Y[Yahoo Finance / latest available market data]
-    S --> N[News / RSS]
-    S --> R[Reddit RSS]
-    S --> E[SEC EDGAR]
-    S --> B[FinBERT]
-
-    Q --> P[Performance]
-    Q --> K[Risk]
-    Q --> D[Diversification]
-    Q --> T[Stress Testing]
-    Q --> BL[Black-Litterman]
-    Q --> EF[Efficient Frontier]
-    Q --> FM[Factor Models]
-    Q --> BT[Backtesting]
+  B[Investor browser] --> F[React / Vite on Vercel]
+  F --> A[FastAPI on Oracle Cloud]
+  A --> M[Market Data and FX]
+  A --> N[News and FinBERT]
+  A --> Q[Quantitative Analytics]
+  Q --> F
 ```
 
-### Frontend
+**Frontend:** React, React Router, Vite and Lucide; responsive dashboards, route-level lazy loading and mobile navigation.
 
-- React
-- Vite
-- React Router
-- Lucide React
-- route-level lazy loading
-- route-intent prefetching
-- persistent local model/portfolio state
-- responsive dark research interface
+**Backend:** Python, FastAPI, NumPy, pandas and SciPy; PyTorch/Transformers for NLP. Oracle Linux hosts the API behind Caddy HTTPS. Market data and news rely in part on external, free or unofficial services.
 
-### Backend
+## Engineering and validation
 
-- Python
-- FastAPI
-- NumPy
-- SciPy
-- pandas
-- yfinance
-- PyTorch
-- Transformers / FinBERT
-- feedparser
-- requests
+Evidence collected during October 2026:
 
----
+- **171 local automated Python tests passed** following financial accounting additions.
+- `npm run build` succeeded after the mobile navigation update.
+- Six institutional API routes returned successful responses: Risk Analytics, Sentiment Intelligence, Efficient Frontier, Black–Litterman, Factor Models and Backtesting.
+- Browser tests covered shared institutional portfolio naming, re-running Efficient Frontier after allocation changes, CSV import, retail analysis displays and mobile navigation.
+- The corrected backtesting implementation has been committed to GitHub, but its Oracle deployment remains pending.
 
-## Quantitative modules
+**Scope of verification:** These tests establish application behaviour in tested scenarios; they do not independently validate every numerical method, market-data feed, FX quote or model forecast. Local tests are not proof that production runs identical code.
 
-### Performance
-
-Historical constant-weight, daily-rebalanced portfolio simulation using current portfolio weights.
-
-The module is intentionally described as a **historical simulation**, not as the investor’s realized P&L.
-
-### Risk
-
-Includes portfolio diagnostics such as:
-
-- annualized volatility
-- maximum drawdown
-- historical VaR
-- CVaR
-- Sharpe ratio
-- Sortino ratio
-- concentration
-- correlation
-- risk contribution
-
-### Diversification
-
-Combines concentration and correlation diagnostics to explain whether portfolio diversification is structural or superficial.
-
-### Stress testing
-
-Supports:
-
-- historical worst-day analysis
-- historical multi-day stress windows
-- annualized volatility context
-- deterministic scenario shocks
-
-Historical return-based stress uses base-currency-consistent histories.
-
-### Efficient Frontier
-
-Uses portfolio optimization to explore risk/return trade-offs and Sharpe-maximizing allocations.
-
-### Black-Litterman
-
-Combines an equilibrium-style prior with investor/model views to produce a more stable expected-return framework than directly optimizing noisy historical means.
-
-### Factor Models
-
-Provides a structured framework for explaining portfolio return characteristics through factor exposures.
-
-### Backtesting
-
-Runs a historical strategy simulation with explicit model inputs and persisted results.
-
----
-
-## Data and model limitations
-
-FinClarity is intentionally transparent about data quality.
-
-- Yahoo Finance is used as an unofficial/free market-data source.
-- “Latest available” should not be interpreted as exchange-grade real-time data.
-- Historical expected returns are noisy estimates.
-- FinBERT measures language sentiment, not truth, causality or future returns.
-- Company listing currency is not the same as economic currency exposure.
-- Country metadata is company profile information, not revenue geography.
-- Missing market or FX data can reduce model coverage.
-- Historical simulations do not represent realized investor performance.
-- Deterministic stress scenarios are assumptions, not forecasts.
-
----
-
-## Engineering quality
-
-The current release gate verifies:
-
-- **166 backend tests passing**
-- **24 unique route declarations**
-- **23 registered frontend routes responding without server errors**
-- **15 lazy-loaded routes aligned with route-prefetch mappings**
-- frontend ESLint passing
-- Vite production build passing
-- all production JavaScript chunks below 500 kB
-- largest JavaScript chunk approximately **291 kB**
-- 36 CSS files with responsive/preference media queries
-- 74 viewport breakpoint rules
-- explicit stale-analysis and retry states
-- zero unresolved installer placeholders
-- no zero-byte active JS/JSX/CSS source files
-
-Route-level code splitting reduced the largest initial JavaScript bundle from roughly **545 kB to 291 kB**, a reduction of approximately **47%**.
-
----
-
-## Selected engineering decisions
-
-### No silent reweighting in risk
-
-Where missing data would materially distort portfolio risk, the risk workflow prefers explicit unavailability over silently removing holdings and renormalizing the rest.
-
-### Coverage-aware synthesis
-
-The Retail Action Centre excludes partially covered analytics from priority ranking where using them would create misleading confidence.
-
-### Cache invalidation
-
-Retail analysis caches are tied to the portfolio signature. When holdings or base currency change, saved analysis is treated as stale and the user is prompted to refresh it.
-
-### Route-level performance optimization
-
-The frontend uses:
-
-- `React.lazy`
-- `Suspense`
-- branded route-loading UI
-- intent-based route prefetching on hover, focus and touch
-- slow-connection / Save-Data safeguards
-
----
-
-## Screenshots
-
-Add final screenshots to `docs/screenshots/` using these names:
-
-```text
-landing.png
-retail-dashboard.png
-retail-action-centre.png
-retail-risk.png
-institutional-overview.png
-efficient-frontier.png
-black-litterman.png
-risk-analytics.png
-```
-
-Then embed them here before publishing the repository publicly.
-
----
-
-## Running locally
-
-### Backend
+### Run locally
 
 ```bash
-cd <path-to>/finclarity
-source .venv/bin/activate
-python -m uvicorn backend.main:app --reload --port 8010
-```
-
-Backend documentation:
-
-```text
-http://127.0.0.1:8010/docs
-```
-
-### Frontend
-
-In a separate terminal:
-
-```bash
-cd <path-to>/finclarity
+# Frontend
+npm install
 npm run dev
 ```
 
-Frontend:
-
-```text
-http://localhost:5173
-```
-
----
-
-## Validation
+In a separate terminal, prepare a Python environment with the backend dependencies defined in the repository, then start:
 
 ```bash
-python -m pytest -q
+python -m uvicorn backend.main:app --reload --port 8010
+```
+
+API documentation: `http://127.0.0.1:8010/docs`. Configure `VITE_API_BASE_URL` for the backend being used.
+
+### Quality checks
+
+```bash
+python -m pytest tests -q
 npm run lint
 npm run build
 ```
 
-The project also contains release QA scripts used to validate routing, frontend/backend availability, build health and UX-state handling.
+## Roadmap and limitations
 
----
+| Status | Area |
+| --- | --- |
+| Implemented and tested in selected workflows | Portfolio entry, CSV import, analytics dashboards, responsive mobile navigation |
+| Implemented with data caveats | News sentiment, historical prices and FX, quantitative model outputs |
+| Pending production update | Revised backtesting weight drift and cost accounting on Oracle |
+| Planned | Live broker/PMS/OMS linking, authenticated accounts, durable multi-user portfolio storage |
+| Research extension | Historical point-in-time sentiment backtesting and broader out-of-sample robustness tests |
+| Engineering extension | Automated browser end-to-end tests, API access controls and production observability |
 
-## What I learned
+Market data may be delayed, limited or unavailable. FinBERT assesses the tone of text, not the truth or predictive power of news. Hypothetical portfolio returns and optimised allocations are **not** actual client performance or personalised investment advice.
 
-Building FinClarity required combining finance concepts with software-engineering constraints.
+## Screenshots
 
-The most important lessons were:
+For a recruiter-friendly project overview, add current screenshots to `docs/screenshots/` for the landing page, retail dashboard, sentiment insights, Efficient Frontier, Black–Litterman, Backtesting and mobile navigation. Screenshots should match the release and distinguish illustrative charts from live analytics.
 
-- why portfolio returns must be currency-consistent
-- why missing data should not be treated as neutral data
-- why historical simulations need precise labels
-- how model outputs should persist across a research workflow
-- how to expose uncertainty and partial coverage in financial UX
-- how to optimize a React application without changing analytics logic
-- how automated tests protect financial-model contracts during iterative development
+## Why I built FinClarity
 
----
-
-## Future extensions
-
-Potential future work includes:
-
-- production-grade authenticated accounts
-- institutional-quality market-data feeds
-- broker/API portfolio import
-- richer factor libraries
-- transaction-aware realized performance
-- portfolio rebalancing workflows
-- cloud model hosting
-- database-backed persistence
-- scheduled research alerts
-
-These are intentionally outside the current portfolio-project scope.
-
----
+FinClarity explores how investment research methods can become a coherent software product. It connects portfolio theory, financial NLP, numerical optimisation and historical risk analysis with backend API design, frontend data visualisation, automated testing and cloud deployment. Its guiding principles are **transparent assumptions, currency consistency, meaningful data-quality states and reproducible analysis**.
 
 ## Disclaimer
 
-FinClarity is an educational and research project. It does not provide investment advice, personalized recommendations, brokerage services or guarantees regarding future investment performance.
-'
+FinClarity is an educational and research demonstration. It does not provide brokerage execution, investment advice, personalised recommendations or guaranteed investment returns.
