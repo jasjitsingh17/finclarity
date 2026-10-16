@@ -414,28 +414,9 @@ def run_walk_forward_backtest(
         )
 
 
-        strategy_returns = (
-            holding_returns.values
-            @ weights
-        )
-
-
-        strategy_returns = (
-            pd.Series(
-                strategy_returns,
-                index=(
-                    holding_returns.index
-                ),
-            )
-        )
-
-
         equal_weight_returns = (
-            holding_returns.mean(
-                axis=1
-            )
+            holding_returns.mean(axis=1)
         )
-
 
         period_benchmark_returns = (
             benchmark_returns.loc[
@@ -443,37 +424,71 @@ def run_walk_forward_backtest(
             ]
         )
 
-
+        # Compare target weights with the actual
+        # drifted holdings before rebalancing.
         if previous_weights is None:
-
             turnover = 0.0
-
         else:
-
-            turnover = (
-                0.5
-                * np.abs(
-                    weights
-                    - previous_weights
+            turnover = float(
+                0.5 * np.abs(
+                    weights - previous_weights
                 ).sum()
             )
 
-
         transaction_cost = (
-            turnover
-            * transaction_cost_rate
+            turnover * transaction_cost_rate
         )
 
+        # Buy-and-hold accounting between
+        # scheduled portfolio rebalances.
+        current_weights = weights.copy()
+        daily_portfolio_returns = []
 
-        if (
-            len(strategy_returns) > 0
-            and transaction_cost > 0
+        for day_index, (_, day) in enumerate(
+            holding_returns.iterrows()
         ):
-
-            strategy_returns.iloc[0] -= (
-                transaction_cost
+            asset_day_returns = day.to_numpy(
+                dtype=float
             )
 
+            gross_return = float(
+                current_weights @ asset_day_returns
+            )
+
+            net_return = gross_return
+
+            if day_index == 0:
+                net_return -= transaction_cost
+
+            daily_portfolio_returns.append(
+                net_return
+            )
+
+            # Market movements change the
+            # weights of existing holdings.
+            asset_growth = (
+                current_weights
+                * (1.0 + asset_day_returns)
+            )
+
+            total_growth = float(
+                asset_growth.sum()
+            )
+
+            if total_growth <= 0:
+                raise ValueError(
+                    "Portfolio value exhausted."
+                )
+
+            current_weights = (
+                asset_growth / total_growth
+            )
+
+        strategy_returns = pd.Series(
+            daily_portfolio_returns,
+            index=holding_returns.index,
+            dtype=float,
+        )
 
         weight_history.append(
             {
@@ -525,7 +540,7 @@ def run_walk_forward_backtest(
 
 
         previous_weights = (
-            weights.copy()
+            current_weights.copy()
         )
 
 
