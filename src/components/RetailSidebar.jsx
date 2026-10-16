@@ -1,3 +1,4 @@
+import MobileNavigation from "./MobileNavigation";
 import "./RetailReadability.css";
 import {
   Activity,
@@ -89,7 +90,8 @@ function RetailSidebar({
   active,
 }) {
   return (
-    <aside className="retail-live-sidebar">
+    <MobileNavigation label="Retail">
+      <aside className="retail-live-sidebar">
 
       <Link
         to="/"
@@ -203,6 +205,7 @@ function RetailSidebar({
       </Link>
 
     </aside>
+    </MobileNavigation>
   );
 }
 

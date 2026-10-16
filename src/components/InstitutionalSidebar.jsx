@@ -1,3 +1,4 @@
+import MobileNavigation from "./MobileNavigation";
 import { Link, useLocation } from "react-router-dom";
 
 import {
@@ -118,7 +119,8 @@ function InstitutionalSidebar() {
 
 
   return (
-    <aside className="institutional-sidebar">
+    <MobileNavigation label="Institutional">
+      <aside className="institutional-sidebar">
       <a
         href="/"
         className="institutional-logo-home-hitbox"
@@ -221,6 +223,7 @@ function InstitutionalSidebar() {
       </a>
 
 </aside>
+    </MobileNavigation>
   );
 }
 
