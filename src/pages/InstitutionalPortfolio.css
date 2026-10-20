@@ -392,3 +392,147 @@
   margin-top: 8px;
   font-size: 20px;
 }
+
+/* Institutional Portfolio responsive layout fix */
+
+.institutional-portfolio-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.institutional-portfolio-main {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.portfolio-meta-panel > *,
+.portfolio-panel,
+.portfolio-panel-heading > * {
+  min-width: 0;
+}
+
+.portfolio-holdings {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.portfolio-holding-row {
+  min-width: 660px;
+  grid-template-columns:
+    minmax(100px, 1.1fr)
+    minmax(85px, .8fr)
+    minmax(85px, .8fr)
+    minmax(110px, 1fr)
+    minmax(90px, .8fr)
+    36px;
+}
+
+.portfolio-holding-row > * {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .institutional-portfolio-page {
+    display: block;
+  }
+
+  .institutional-portfolio-main {
+    padding: 28px 22px 42px;
+  }
+
+  .institutional-portfolio-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .institutional-portfolio-actions {
+    flex-wrap: wrap;
+  }
+
+  .portfolio-meta-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-provider-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-tabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .institutional-portfolio-main {
+    padding: 20px 14px 85px;
+  }
+
+  .institutional-portfolio-header h1 {
+    font-size: 26px;
+  }
+
+  .institutional-portfolio-actions > button {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .portfolio-meta-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-panel {
+    padding: 14px;
+  }
+
+  .portfolio-results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Split-screen and narrow desktop window support */
+
+@media (max-width: 1280px) {
+  .institutional-portfolio-page {
+    display: block !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .institutional-portfolio-main {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    padding: 26px 22px 60px;
+  }
+
+  .institutional-portfolio-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .institutional-portfolio-actions {
+    flex-wrap: wrap;
+  }
+
+  .portfolio-meta-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-holdings {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
